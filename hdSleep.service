@@ -1,0 +1,7 @@
+
+[Unit]
+Description=Run hdSleep each 2min and 5min after boot
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /home/patrick/Documentos/hdSleep.sh
