@@ -1,5 +1,5 @@
 [Unit]
-Description=Run hdSleep each 2min and on boot
+Description=Run hdSleep each 2min and 5min after boot
 
 [Timer]
 OnBootSec=5min
