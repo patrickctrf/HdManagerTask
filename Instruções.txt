@@ -1,0 +1,9 @@
+Primeiro você coloca o 'hdSleep.sh' na pasta 'Documentos' do seu Ubuntu;
+Daí você precisa copiar e colar o serviço e o timer na pasta '/etc/systemd/system';
+Depois você ativa ambos com os comandos 'sudo systemctl enable hdSleep.service' e 'sudo systemctl enable hdSleep.timer';
+Por último, você torna o arquivo shell (.sh) editável somente pelo root, para ninguém poder inserir comandos SUDO no seu sistema sem sua senha. Abaixo há um site e dicas para tal:
+
+sudo chown root:root /path/to/application
+sudo chmod 700 /path/to/application
+
+https://askubuntu.com/questions/193055/how-to-make-files-accessible-only-by-root
