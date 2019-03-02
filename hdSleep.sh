@@ -10,6 +10,7 @@
 # É preciso verificar se o HD é REALMENTE a unidade montada em SDA na tabela de partições. Se não for, subtitua pela devida (SDB, SDC, etc).
 sudo timeout 10 dstat -D sda > auxTemp.txt
 
+
 # O comando TIMEOUT acima aguarda até que o comando dstat acima envie leituras fidedignas do uso da unidade
 
 
@@ -29,9 +30,10 @@ stringOciosa=$(cat saidaGrepOcioso.txt)
 # As variáveis acima descritas são preenchidas sob o parâmetro '-c' do comando grep. Isto é, elas recebem apenas a QUANTIDADE de linhas combinando com a sequência.
 contagemStringAtivaEmLeitura=3
 contagemStringAtivaEmEscrita=3
-stringAtiva=$(sudo grep -E [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]+[1-9]*[0-9]*[a-zA-Z]*[[:space:]]+[1-9]+[0-9]*[a-zA-Z]* auxTemp.txt)
-contagemStringAtivaEmLeitura=$(sudo grep -Ec [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]+[1-9]+[0-9]*[a-zA-Z]*[[:space:]]+[1-9]*[0-9]*[a-zA-Z]* auxTemp.txt)
-contagemStringAtivaEmEscrita=$(sudo grep -Ec [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]+[1-9]*[0-9]*[a-zA-Z]*[[:space:]]+[1-9]+[0-9]*[a-zA-Z]* auxTemp.txt)
+# Acho que a STRING ATIVA esta com expressao incoerente, desconsidere.
+stringAtiva=$(sudo grep -E [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]*[1-9]*[0-9]*[a-zA-Z]*[[:space:]]+[1-9]+[0-9]*[a-zA-Z]* auxTemp.txt)
+contagemStringAtivaEmLeitura=$(sudo grep -Ec [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]*[1-9]+[0-9]*[a-zA-Z]*[[:space:]]+[1-9]*[0-9]*[a-zA-Z]* auxTemp.txt)
+contagemStringAtivaEmEscrita=$(sudo grep -Ec [0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9]+[[:print:]][[:space:]]*[1-9]*[0-9]*[a-zA-Z]*[[:space:]]+[1-9]+[0-9]*[a-zA-Z]* auxTemp.txt)
 #echo 'string ativa eh: '$stringAtiva
 
 
